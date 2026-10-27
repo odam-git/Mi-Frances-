@@ -1,0 +1,16 @@
+{
+  "name": "mi-frances-proxy",
+  "private": true,
+  "type": "module",
+  "description": "Servidor intermedio opcional de MI FRANCÉS: tutor IA (Claude) y voz neural (Azure). Las claves viven aquí como secretos, nunca en la app.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.3.0"
+  },
+  "devDependencies": {
+    "wrangler": "latest"
+  }
+}

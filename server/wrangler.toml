@@ -1,0 +1,17 @@
+name = "mi-frances-proxy"
+main = "src/worker.js"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Origen autorizado (tu app en GitHub Pages). Sin barra final.
+ALLOWED_ORIGIN = "https://odam-git.github.io"
+# Modelo del tutor. Cámbialo aquí si prefieres otro (p. ej. claude-haiku-5-5, más barato).
+MODEL = "claude-opus-5-5"
+AZURE_REGION = "eastus"
+AZURE_VOICE = "fr-FR-DeniseNeural"
+
+# Secretos (NO van en este archivo). Configúralos con:
+#   npx wrangler secret put ANTHROPIC_API_KEY
+#   npx wrangler secret put APP_TOKEN          (una contraseña que tú inventas y pones en la app)
+#   npx wrangler secret put AZURE_SPEECH_KEY   (opcional, solo para voz neural)

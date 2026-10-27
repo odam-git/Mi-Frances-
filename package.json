@@ -1,0 +1,31 @@
+{
+  "name": "mi-frances",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MI FRANCÉS — entrenador personal de francés (PWA local-first)",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "e2e": "node --experimental-strip-types --no-warnings tests/e2e/run-e2e.mjs",
+    "check": "npm run test && npm run build && npm run e2e"
+  },
+  "dependencies": {
+    "dexie": "4.4.7",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "ts-fsrs": "5.4.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "fake-indexeddb": "6.2.6",
+    "typescript": "^5.9.0",
+    "vite": "8.3.5",
+    "vite-plugin-pwa": "2.0.0",
+    "vitest": "5.0.5"
+  }
+}
