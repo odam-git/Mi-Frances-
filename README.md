@@ -2,7 +2,7 @@
 
 Aplicación web instalable (PWA) para aprender francés desde A1, con memoria visual, casilleros mentales, repetición espaciada (FSRS-6) y práctica oral y escrita. Funciona en iPhone y en computadora, **sin servidor y sin coste**. El tutor de IA y la voz neural son opcionales.
 
-- **Abrir la app:** https://odam-git.github.io/mi-frances/
+- **Abrir la app:** https://odam-git.github.io/Mi-Frances-/
 - **Fundamento pedagógico:** [`docs/investigacion_aprendizaje_frances.md`](docs/investigacion_aprendizaje_frances.md) (resumen del informe original, conservado en `docs/`).
 - **Arquitectura y decisiones:** [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 

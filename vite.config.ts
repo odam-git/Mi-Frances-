@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
-// La app se publica en una subcarpeta (GitHub Pages: https://odam-git.github.io/mi-frances/),
+// La app se publica en una subcarpeta (GitHub Pages: https://odam-git.github.io/Mi-Frances-/),
 // por eso todas las rutas son relativas (base './').
 export default defineConfig({
   base: './',
