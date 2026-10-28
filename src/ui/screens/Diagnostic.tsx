@@ -165,7 +165,7 @@ export function Diagnostic({ onDone }: { onDone: () => void }) {
       {stage === 'resultado' && (
         <div className="fade-in">
           <div className="card hero">
-            <div className="eyebrow" style={{ color: 'rgba(246,241,231,.7)' }}>Tu punto de partida</div>
+            <div className="eyebrow">Tu punto de partida</div>
             <h1>{level}</h1>
             <p className="muted">Vocabulario: {b1.ok}/{b1.n} frecuentes · {b2.ok}/{b2.n} intermedias · {b3.ok}/{b3.n} avanzadas.</p>
           </div>

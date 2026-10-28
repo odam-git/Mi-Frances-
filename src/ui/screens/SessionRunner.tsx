@@ -109,7 +109,7 @@ function Summary({ session, onFinish }: { session: SessionRecord; onFinish: () =
   return (
     <div className="fade-in">
       <div className="card hero">
-        <div className="eyebrow" style={{ color: 'rgba(246,241,231,.7)' }}>Sesión terminada</div>
+        <div className="eyebrow">Sesión terminada</div>
         <h1>Bien hecho.</h1>
         <p className="muted">{minutes} min · {recalls.length} recuperaciones · {recalls.length ? Math.round((ok / recalls.length) * 100) : 0}% acertadas al primer intento o tras reintento</p>
         <p className="muted">{session.newItemIds.length} palabras nuevas · {dueTomorrow} repasos programados hasta mañana</p>

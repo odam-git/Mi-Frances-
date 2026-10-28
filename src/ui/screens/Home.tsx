@@ -36,7 +36,7 @@ export function Home({ onStart, onResume, onDiagnostic, onGo }: { onStart: (minu
       <h1 lang="fr">{greet}{settings.userName ? `, ${settings.userName}` : ''}.</h1>
 
       <div className="card hero" style={{ marginTop: 14 }}>
-        <div className="eyebrow" style={{ color: 'rgba(246,241,231,.7)' }}>Tu siguiente paso</div>
+        <div className="eyebrow">Tu siguiente paso</div>
         <h2 style={{ marginTop: 0 }}>{action.label}</h2>
         <p className="muted">
           {action.kind === 'resume' && active ? `Vas en «${PHASE_LABEL[active.steps[active.cursor]?.phase ?? 'cierre']}» · quedan ${remaining} pasos (~${estimateMinutes(active.steps.slice(active.cursor))} min).` : action.detail}
@@ -45,14 +45,14 @@ export function Home({ onStart, onResume, onDiagnostic, onGo }: { onStart: (minu
         {action.kind === 'resume' && (
           <div className="stack">
             <button className="btn light big block" onClick={onResume}>Continuar</button>
-            <button className="btn ghost sm" style={{ color: 'var(--paper)' }} onClick={() => onStart(minutes)}>Empezar una sesión nueva</button>
+            <button className="btn ghost sm" onClick={() => onStart(minutes)}>Empezar una sesión nueva</button>
           </div>
         )}
         {action.kind === 'session' && (
           <>
             <div className="row" role="group" aria-label="Duración de la sesión" style={{ marginBottom: 12 }}>
               {[5, 10, 15, 20].map((m) => (
-                <button key={m} className="chip" aria-pressed={minutes === m} onClick={() => setMinutes(m)} style={minutes === m ? { background: 'var(--paper)', color: 'var(--ink)' } : { background: 'transparent', color: 'var(--paper)', borderColor: 'rgba(246,241,231,.35)' }}>
+                <button key={m} className="chip" aria-pressed={minutes === m} onClick={() => setMinutes(m)}>
                   {m} min
                 </button>
               ))}
@@ -63,7 +63,7 @@ export function Home({ onStart, onResume, onDiagnostic, onGo }: { onStart: (minu
         {action.kind === 'free' && (
           <div className="stack">
             <button className="btn light big block" onClick={() => onGo('memoria', 'practicar')}>Practicar un diálogo</button>
-            <button className="btn ghost" style={{ color: 'var(--paper)' }} onClick={() => onStart(minutes)}>Sesión de repaso de todos modos</button>
+            <button className="btn ghost" onClick={() => onStart(minutes)}>Sesión de repaso de todos modos</button>
           </div>
         )}
       </div>

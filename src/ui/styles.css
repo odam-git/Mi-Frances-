@@ -7,7 +7,7 @@
   --card: #fffdf8;
   --ink: #1d2a44;
   --ink-2: #4a5570;
-  --ink-3: #7b8398;
+  --ink-3: #5d6476;
   --line: #e2d8c6;
   --accent: #a3243b;
   --accent-ink: #ffffff;
@@ -16,9 +16,9 @@
   --ok-soft: #dcefe3;
   --bad: #b3361f;
   --bad-soft: #f8e0da;
-  --warm: #c9731a;
+  --warm: #95500a;
   --warm-soft: #fbe9d2;
-  --cool: #1f7f86;
+  --cool: #146a70;
   --cool-soft: #d6eef0;
   --nasal: #2457c5;
   --round: #b06a00;
@@ -140,13 +140,28 @@ p { margin: 0 0 10px; }
   margin-bottom: 14px;
 }
 .card.flat { box-shadow: none; }
+/* La tarjeta principal es siempre oscura con texto claro, en modo claro y oscuro. */
 .hero {
-  background: var(--ink);
-  color: var(--paper);
+  --hero-bg: #1d2a44;
+  --hero-ink: #f6f1e7;
+  --hero-soft: rgba(246, 241, 231, 0.75);
+  --hero-line: rgba(246, 241, 231, 0.35);
+  background: var(--hero-bg);
+  color: var(--hero-ink);
   border: none;
   position: relative;
   overflow: hidden;
 }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='claro']) .hero { --hero-bg: #2b3b60; }
+}
+:root[data-theme='oscuro'] .hero { --hero-bg: #2b3b60; }
+.hero h1, .hero h2, .hero h3 { color: var(--hero-ink); }
+.hero .eyebrow { color: var(--hero-soft); }
+.hero .btn.light { background: var(--hero-ink); color: #1d2a44; }
+.hero .btn.ghost { color: var(--hero-ink); }
+.hero .chip { background: transparent; color: var(--hero-ink); border-color: var(--hero-line); }
+.hero .chip[aria-pressed='true'] { background: var(--hero-ink); color: #1d2a44; border-color: var(--hero-ink); }
 .hero::after {
   content: 'é';
   position: absolute;
@@ -159,8 +174,7 @@ p { margin: 0 0 10px; }
   line-height: 1;
   pointer-events: none;
 }
-.hero .muted, .hero .tiny { color: rgba(246, 241, 231, 0.75); }
-:root[data-theme='oscuro'] .hero, .hero { --hero-btn: var(--paper); }
+.hero .muted, .hero .tiny { color: var(--hero-soft); }
 
 .grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
