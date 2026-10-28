@@ -13,8 +13,9 @@ Aplicación web instalable (PWA) para aprender francés desde A1, con memoria vi
 1. Abre el enlace en **Safari**.
 2. Toca **Compartir** (cuadro con flecha) → **Agregar a pantalla de inicio** → **Agregar**.
 3. Abre «Mi Francés» desde el ícono. Así funciona a pantalla completa y sin conexión, y tus datos quedan mejor protegidos.
-4. **Voz francesa:** en *Ajustes → Accesibilidad → Contenido leído → Voces → Francés*, descarga una voz «mejorada» (por ejemplo, Thomas o Amélie). Sin ella, la app funciona pero sin audio.
-5. La primera vez, haz el **diagnóstico** (unos 5 min). Después, cada día, toca **Empezar**.
+4. **Sonido:** el iPhone en **modo silencio** también silencia la voz de la app. Quita el modo silencio y sube el volumen.
+5. **Voz francesa:** en *Ajustes → Accesibilidad → Contenido leído → Voces → Francés*, descarga una voz «mejorada» (por ejemplo, Thomas o Amélie). Sin ella, la app funciona pero sin audio.
+6. La primera vez, haz el **diagnóstico** (unos 5 min). Después, cada día, toca **Empezar**.
 
 > El progreso que hagas en una pestaña de Safari y el de la app instalada se guardan **por separado**. Usa siempre la app instalada; si ya avanzaste en Safari, exporta un respaldo e impórtalo en la app.
 

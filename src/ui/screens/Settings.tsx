@@ -77,7 +77,7 @@ export function Settings({ onRedoDiagnostic }: { onRedoDiagnostic: () => void })
         </div>
         <button className="btn sm" onClick={() => speak("Bonjour ! Je m'appelle Marie. Enchantée.").catch((e) => setMsg(`Audio: ${(e as Error).message}`))}>Probar voz</button>
         <p className="tiny" style={{ marginTop: 8 }}>
-          La voz es la síntesis de tu dispositivo (gratis, funciona sin conexión si la voz está descargada). No es una grabación de un hablante nativo.
+          La voz es la síntesis de tu dispositivo (gratis, funciona sin conexión si la voz está descargada). No es una grabación de un hablante nativo. <b>En iPhone, el modo silencio también silencia esta voz</b>: desactívalo y sube el volumen si no oyes nada.
           Reconocimiento de voz: {canTranscribe() ? 'disponible en este navegador (transcripción, no evaluación fonética).' : isIOS() && isStandalone() ? 'no disponible en la app instalada de iPhone; se usa grabación y autocomparación.' : 'no disponible; se usa grabación y autocomparación.'}
         </p>
       </div>

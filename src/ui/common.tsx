@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { displayFr, type Item } from '../content/types';
 import type { EffItem } from '../state';
 import { speak } from '../services/speech';
@@ -77,9 +77,24 @@ export function Scene({ item, size, muted = false }: { item: EffItem; size?: 'sm
   );
 }
 
+/** En iPhone, el modo silencio también apaga la voz de las páginas web: se recuerda las primeras veces. */
+function silentTipDue(): boolean {
+  if (!/iP(hone|ad|od)/.test(navigator.userAgent) && !(navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) return false;
+  try {
+    const n = Number(localStorage.getItem('mf-silent-tip') ?? '0');
+    localStorage.setItem('mf-silent-tip', String(n + 1));
+    return n < 6;
+  } catch {
+    return true;
+  }
+}
+
 export function SpeakButtons({ text, compact = false, autoPlay = false, onError }: { text: string; compact?: boolean; autoPlay?: boolean; onError?: (msg: string) => void }) {
   const [err, setErr] = useState<string | null>(null);
+  const [tip, setTip] = useState(false);
   const play = async (slow: boolean) => {
+    if (!autoPlayRef.current) setTip(silentTipDue());
+    autoPlayRef.current = false;
     try {
       setErr(null);
       await speak(text, { slow });
@@ -91,7 +106,9 @@ export function SpeakButtons({ text, compact = false, autoPlay = false, onError 
       onError?.(m);
     }
   };
+  const autoPlayRef = useRef(false);
   useEffect(() => {
+    autoPlayRef.current = true;
     if (autoPlay) play(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [text, autoPlay]);
@@ -103,7 +120,8 @@ export function SpeakButtons({ text, compact = false, autoPlay = false, onError 
       <button type="button" className={`btn ${compact ? 'sm' : ''} ghost`} onClick={() => play(true)} aria-label={`Escuchar despacio: ${text}`}>
         <Icon name="lento" /> {compact ? '0.75×' : 'Despacio'}
       </button>
-      {err && !compact && <span className="tiny" role="status">{err}</span>}
+      {err && <span className="tiny" role="status" style={{ flexBasis: '100%', textAlign: 'center' }}>{err}</span>}
+      {tip && !err && <span className="tiny" role="status" style={{ flexBasis: '100%', textAlign: 'center' }}>¿No oyes nada? Quita el <b>modo silencio</b> del iPhone y sube el volumen.</span>}
     </span>
   );
 }

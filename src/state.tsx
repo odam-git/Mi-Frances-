@@ -8,6 +8,7 @@ import { defaultPalace, type Palace } from './engine/palace';
 import { buildDailySession, buildMasteryExam, withRetry, type SessionRecord, type Step, type StepResult } from './engine/session';
 import { applyAttempt, cardId, newCardRecord, seedKnown, type Attempt, type CardRecord, type Direction, type ReviewOutcome } from './engine/srs';
 import { dayKey } from './engine/stats';
+import { configureSpeech } from './services/speech';
 import { MASTERY_RULE } from './content/curriculum';
 
 /** Ítem efectivo: contenido base + personalización del usuario. */
@@ -90,6 +91,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
       await db.palaces.put(p);
       palaces = [p];
     }
+    configureSpeech(settings);
     const customBy = new Map(custom.map((c) => [c.itemId, c]));
     const items: EffItem[] = [...userItems.map((i) => mergeItem(i, customBy.get(i.id), true)), ...ALL_ITEMS.map((i) => mergeItem(i, customBy.get(i.id)))];
     const active = [...sessions].reverse().find((s) => s.status === 'activa') ?? null;
